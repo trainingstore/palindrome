@@ -10,10 +10,10 @@ function Phrase(content) {
 
   // Returns content processed for palindrome testing.
   this.processedContent = function () {
-    return this.toLowerCase();
+    return this.content.toLowerCase();
   };
   // Returns true for a palindrome, false otherwise.
   this.palindrome = function () {
-    return this.processedContent() === reverse(this.processedContent());
+    return this.processedContent() === (this.processedContent()).reverse();
   };
 }

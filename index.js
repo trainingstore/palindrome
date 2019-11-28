@@ -10,8 +10,14 @@ function Phrase(content) {
 
   // Returns content processed for palindrome testing.
   this.processedContent = function () {
-    return this.content.toLowerCase();
+    return this.letters().toLowerCase();
   };
+  // Returns the letters in the content.
+  // For example:
+  //  new Phrase("Hello, world!").letters() === "Helloworld";
+  this.letters = function () {
+    return (this.content.match(/[a-z]/gi) || []).join("");
+  }
   // Returns true for a palindrome, false otherwise.
   this.palindrome = function () {
     return this.processedContent() === (this.processedContent()).reverse();

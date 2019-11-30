@@ -16,10 +16,14 @@ function Phrase(content) {
   // For example:
   //  new Phrase("Hello, world!").letters() === "Helloworld";
   this.letters = function () {
+    // return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
     return (this.content.match(/[a-z]/gi) || []).join("");
-  }
+  };
   // Returns true for a palindrome, false otherwise.
   this.palindrome = function () {
-    return this.processedContent() === (this.processedContent()).reverse();
+    if (!!this.processedContent()){
+      return this.processedContent() === (this.processedContent()).reverse();
+    }
+    return false;
   };
 }
